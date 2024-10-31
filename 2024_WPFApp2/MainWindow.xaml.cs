@@ -1,14 +1,4 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+﻿using System.Windows;
 namespace _2024_WPFApp2
 {
     /// <summary>
@@ -21,9 +11,49 @@ namespace _2024_WPFApp2
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MyButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World!");
+            //MessageBox.Show("Hello WPF", "Welcome");
+            int number;
+            List<int> primes = new List<int>();
+
+            bool isSuccess = int.TryParse(MyTextBox.Text, out number);
+
+            if (!isSuccess)
+            {
+                MessageBox.Show("請輸入整數", "錯誤");
+            }
+            else if (number < 2)
+            {
+                MessageBox.Show("請輸入大於等於2的整數", "錯誤");
+            }
+            else
+            {
+                string primeText = $"小於等於{number}的質數有：";
+                for (int i = 2; i <= number; i++)
+                {
+                    if (IsPrime(i)) primes.Add(i);
+                }
+                foreach (var p in primes)
+                {
+                    primeText += p + " ";
+                }
+                MyTextBlock.Text = primeText;
+            }
+        }
+
+        private bool IsPrime(int p)
+        {
+            for (int i = 2; i < p; i++)
+            {
+                if (p % i == 0) return false;
+            }
+            return true;
+        }
+
+        private void MyTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }

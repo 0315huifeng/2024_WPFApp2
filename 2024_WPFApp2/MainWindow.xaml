@@ -5,13 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2024_WPFApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#FFCBBCCA">
+        Title="MainWindow" Height="450" Width="800" Background="#FFCBC8BC">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Hello" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="307,71,0,0" VerticalAlignment="Top" Height="65" Width="120" Click="Button_Click" FontSize="18" FontWeight="Bold" Background="#FFE6B6B6"/>
+        <Button x:Name="MyButton" Content="計算質數" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="582,35,0,0" VerticalAlignment="Top" Height="48" Width="170" Click="MyButton_Click" FontSize="18" FontWeight="Bold" Background="#FFD7E5CE"/>
+        <Label Content="請輸入一個數值&#xD;&#xA;" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="46,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.668,-2.268" Height="34" FontSize="16" Width="120">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.801"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="MyTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="195,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" RenderTransformOrigin="-0.13,-4.167" Height="37" FontSize="20" TextChanged="MyTextBox_TextChanged"/>
+        <TextBlock x:Name="MyTextBlock" HorizontalAlignment="Center" Margin="0,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="297" Width="704" Background="#FFEDEEE7" Grid.Column="1" FontSize="20"/>
 
     </Grid>
 </Window>
